@@ -69,6 +69,7 @@ while not is_game_over:
             writer.write(arg=state_data[0][0])
             player_score += 1
 
-        # If the player guesses all the states correctly, nothing happens. :D
+        # If the player guesses all the states correctly, nothing happens.
+        # Probably should build a end screen with some positive reinforcement. :D
         if player_score == NUMBER_OF_STATES:
             is_game_over = True
