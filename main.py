@@ -25,6 +25,10 @@ state_from_db = db_states.state.to_list()
 
 
 def check_answer(user_guess):
+    """
+    Checks if the guessed state exists in the database and if it has been guessed already.
+    Returns all information about the state for further operations in the program.
+    """
 
     if user_guess in state_from_db:
         if user_guess not in correct_guesses:
@@ -35,6 +39,10 @@ def check_answer(user_guess):
 
 
 def export_missed_states():
+    """
+    At the end of the game, exports all the states that have not been guessed to a file named "missed_states.csv"
+    in the same directory as the project.
+    """
     global missed_states
     for state in state_from_db:
         if state not in correct_guesses:
