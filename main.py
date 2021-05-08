@@ -30,6 +30,7 @@ def check_answer(user_guess):
     Returns all information about the state for further operations in the program.
     """
 
+
     if user_guess in state_from_db:
         if user_guess not in correct_guesses:
             correct_guesses.append(user_guess)
@@ -44,7 +45,7 @@ def export_missed_states():
     in the same directory as the project.
     """
     global missed_states
-    missed_states = [state for state in state_from_db if state in correct_guesses]
+    missed_states = [state for state in state_from_db if state not in correct_guesses]
 
     csv_data = pandas.DataFrame(missed_states)
     csv_data.columns = ["State"]
