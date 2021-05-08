@@ -44,9 +44,7 @@ def export_missed_states():
     in the same directory as the project.
     """
     global missed_states
-    for state in state_from_db:
-        if state not in correct_guesses:
-            missed_states.append(state)
+    missed_states = [state for state in state_from_db if state in correct_guesses]
 
     csv_data = pandas.DataFrame(missed_states)
     csv_data.columns = ["State"]
